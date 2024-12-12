@@ -2,7 +2,7 @@ This project is a cross-platform ASP.NET Core Web API designed for generating an
 
 Key Features:
 
-Barcode Generation: Supports various formats, including Code 128, Code 93, and Code 39.
+Barcode Generation: Supports various formats, including Code 128.
 QR Code Generation: Creates QR codes with customizable parameters.
 Code Reading: Decodes barcodes and QR codes from images.
 Cross-Platform Compatibility: Functions seamlessly on Windows, macOS, and Linux environments.
