@@ -1,29 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SkiaSharp;
-using System.Drawing;
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
-using ZXing.SkiaSharp;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BarAndQRCodeScanner.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ScannerController : ControllerBase
+    public class ScannerController(BarcodeReaderService barcodeReaderService, QRCodeReaderService qrCodeReaderService, GenrateBarQRCode genrateBarQRCode) : ControllerBase
     {
-        private readonly BarcodeReaderService _barcodeReaderService;
-        private readonly QRCodeReaderService _qrCodeReaderService;
-        private readonly GenrateBarQRCode _genrateBarQRCode;
-
-
-        public ScannerController(BarcodeReaderService barcodeReaderService, QRCodeReaderService qrCodeReaderService, GenrateBarQRCode genrateBarQRCode)
-        {
-            _barcodeReaderService = barcodeReaderService;
-            _qrCodeReaderService = qrCodeReaderService;
-            _genrateBarQRCode = genrateBarQRCode;
-        }
+        private readonly BarcodeReaderService _barcodeReaderService = barcodeReaderService;
+        private readonly QRCodeReaderService _qrCodeReaderService = qrCodeReaderService;
+        private readonly GenrateBarQRCode _genrateBarQRCode = genrateBarQRCode;
 
         [HttpPost("scan-barcode")]
         public IActionResult ScanBarcode(IFormFile file)

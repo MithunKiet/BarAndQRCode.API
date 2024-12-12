@@ -1,8 +1,5 @@
 ﻿using QRCoder;
 using SkiaSharp;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using ZXing;
 using ZXing.Common;
 using ZXing.SkiaSharp.Rendering;
